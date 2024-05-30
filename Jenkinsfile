@@ -10,6 +10,7 @@ pipeline {
   parameters {
     string(name: 'ENV', defaultValue: 'prod', description: 'Environment')
     string(name: 'APPNAME', defaultValue: '', description: '')
+    string(name: 'APP_VERSION', defaultValue: '', description: '')
   }
 
 
@@ -33,7 +34,7 @@ pipeline {
 
     stage('Helm Deploy'){
         steps{
-        sh 'helm upgrade -i ${APPNAME} ./CHART -f APP/helm/${ENV}.yaml'
+        sh 'helm upgrade -i ${APPNAME} ./CHART -f APP/helm/${ENV}.yaml --set APP_VERSION=${APP_VERSION}'
         }
     }
   }
