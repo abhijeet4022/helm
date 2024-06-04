@@ -8,3 +8,7 @@ spec:
   containers:
     - name: {{.Values.component}}
       image: 767398040211.dkr.ecr.us-east-1.amazonaws.com/{{.Values.component}}:{{.Values.APP_VERSION}}
+  initContainers:
+    - name: roboshop-init-cont
+      image: 767398040211.dkr.ecr.us-east-1.amazonaws.com/roboshop-init-cont:2.0.1
+      imagePullPolicy: Always
