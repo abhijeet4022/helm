@@ -13,3 +13,10 @@ spec:
     - name: roboshop-init-cont
       image: 767398040211.dkr.ecr.us-east-1.amazonaws.com/roboshop-init-cont:2.0.1
       imagePullPolicy: Always
+      volumeMounts:
+        - mountPath: /common
+          name: common
+  volumes:
+    - name: common
+      emptyDir:
+        sizeLimit: 5Mi
