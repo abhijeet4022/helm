@@ -34,7 +34,7 @@ pipeline {
 
     stage('Helm Deploy'){
         steps{
-        sh 'helm upgrade -i ${APPNAME} ./CHART -f APP/helm/${ENV}.yaml --set APP_VERSION=${APP_VERSION}'
+        sh 'helm upgrade -i ${APPNAME} ./CHART --debug -f APP/helm/${ENV}.yaml --set APP_VERSION=${APP_VERSION}'
         }
     }
   }
